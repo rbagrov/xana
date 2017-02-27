@@ -34,7 +34,10 @@ install:
 script:
     - pycodestyle --ignore=E501 --show-source xana.py
     - pycodestyle --ignore=E501 --show-source app
-
+    - nosetests --with-coverage --cover-package=app/ --cover-tests
 cache:
     apt: true
     pip: true
+
+after_success:
+    - codecov
