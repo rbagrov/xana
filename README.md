@@ -11,8 +11,6 @@ Table of contents
 - [Intro](#intro)
 - [Install](#install)
 - [Contents](#contents)
-- [Code base](#code-base)
-- [Tests](#tests)
 
 
 Intro
@@ -34,10 +32,4 @@ Contents
 =======
 
 
-Code base
-=======
-
-
-Tests
-=======
 
