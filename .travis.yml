@@ -1,11 +1,6 @@
 language: python
 sudo: required
 dist: trusty
-
-env:
-    global:
-        - HI="ho"
-
 matrix:
     include:
         - python: 3.4
@@ -35,6 +30,7 @@ script:
     - pycodestyle --ignore=E501 --show-source xana.py
     - pycodestyle --ignore=E501 --show-source app
     - nosetests --with-coverage --cover-package=app/ --cover-tests
+    - nosetests -v
 cache:
     apt: true
     pip: true
