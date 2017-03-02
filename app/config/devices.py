@@ -5,6 +5,7 @@ __title__ = 'Structure runner'
 __all__ = ['Structure']
 __author__ = 'Rostislav Bagrov <bagrov.rostislav@gmail.com>'
 
+
 class Structure(object):
 
     def get_directory_structure(self, confdir: str) -> dict:
