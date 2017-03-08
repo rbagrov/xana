@@ -35,3 +35,31 @@ class Structure(object):
                 filepath = os.path.join(root, filename)
                 paths.append(filepath)
         return paths
+
+    def get_ini_files(self, confdir: str) -> list:
+        """
+        Creates list of all files with .ini extension in the given
+        directory structure
+        """
+        return [f for f in self.get_file_list(confdir) if f.endswith('.ini')]
+
+    def get_xml_files(self, confdir: str) -> list:
+        """
+        Creates list of all files with .xml extension in the given
+        directory structure
+        """
+        return [f for f in self.get_file_list(confdir) if f.endswith('.xml')]
+
+    def get_yml_files(self, confdir: str) -> list:
+        """
+        Creates list of all files with .yml extension in the given
+        directory structure
+        """
+        return [f for f in self.get_file_list(confdir) if f.endswith('.yml')]
+
+    def get_json_files(self, confdir: str) -> list:
+        """
+        Creates list of all files with .yml extension in the given
+        directory structure
+        """
+        return [f for f in self.get_file_list(confdir) if f.endswith('.json')]
