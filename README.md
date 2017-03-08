@@ -1,10 +1,5 @@
 XANA - Configuration versioning tool for various devices
 
-\ \/ /   / \  | \ | |  / \   
- \  /   / _ \ |  \| | / _ \  
- /  \  / ___ \| |\  |/ ___ \ 
-/_/\_\/_/   \_\_| \_/_/   \_\
-
 ========
 
 [![Build Status](https://travis-ci.org/rbagrov/xana.svg?branch=master)](https://travis-ci.org/rbagrov/xana)
