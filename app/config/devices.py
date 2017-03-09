@@ -50,12 +50,12 @@ class Structure(object):
         """
         return [f for f in self.get_file_list(confdir) if f.endswith('.xml')]
 
-    def get_yml_files(self, confdir: str) -> list:
+    def get_yaml_files(self, confdir: str) -> list:
         """
-        Creates list of all files with .yml extension in the given
+        Creates list of all files with .yaml extension in the given
         directory structure
         """
-        return [f for f in self.get_file_list(confdir) if f.endswith('.yml')]
+        return [f for f in self.get_file_list(confdir) if f.endswith('.yaml')]
 
     def get_json_files(self, confdir: str) -> list:
         """
