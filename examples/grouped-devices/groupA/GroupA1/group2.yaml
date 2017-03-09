@@ -1,4 +1,11 @@
 location-subgroup-deviceID:
     ip: 127.0.0.1
     user: foo
-    password: bar 
+    password: bar
+
+
+location-subgroup1-deviceID:
+    ip: 127.0.0.1
+    user: foo1
+    password: bar1
+

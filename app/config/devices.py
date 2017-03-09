@@ -63,3 +63,49 @@ class Structure(object):
         directory structure
         """
         return [f for f in self.get_file_list(confdir) if f.endswith('.json')]
+
+
+class Parser(object):
+
+    @staticmethod
+    def read_yaml(cfile: str) -> list:
+        """
+        Opens YAML conf file and returns its contents.
+        """
+        import yaml
+        try:
+            with open(cfile, 'r') as yaml_file:
+                conf = yaml.load(yaml_file)
+                return [each for each in conf.items()]
+        except Exception:
+            pass
+
+    @staticmethod
+    def read_ini(cfile: str) -> list:
+        """
+        Opens INI conf file and returns its contents.
+        """
+        from configparser import ConfigParser
+        config = ConfigParser()
+        out = []
+        try:
+            config.read(cfile)
+            sections = config.sections()
+            for section in sections:
+                items = config.items(section)
+                out.append({section: {item[0]: item[1] for item in items}})
+            return out
+        except Exception:
+            pass
+
+    @staticmethod
+    def read_xml_that_needs_work(cfile: str) -> list:
+        """
+        Opens XML conf file and returns its contents.
+        """
+        import xml.etree.ElementTree as xmlparser
+        try:
+            xml_conf = xmlparser.parse(cfile)
+            return xml_conf
+        except Exception:
+            pass
