@@ -2,6 +2,7 @@
 # -*- coding: utf8 -*-
 
 import os
+from functools import reduce
 
 __title__ = 'Structure runner'
 __all__ = ['Structure']
@@ -99,13 +100,21 @@ class Parser(object):
             pass
 
     @staticmethod
-    def read_xml_that_needs_work(cfile: str) -> list:
+    def read_xml(cfile: str) -> list:
         """
         Opens XML conf file and returns its contents.
         """
         import xml.etree.ElementTree as xmlparser
+        out = []
         try:
-            xml_conf = xmlparser.parse(cfile)
-            return xml_conf
+            tree = xmlparser.parse(cfile)
+            root = tree.getroot()
+            for device in root.findall('device'):
+                out.append(
+                    {device.attrib['name']:
+                        {'address': device.find('address').text,
+                         'user': device.find('user').text,
+                         'password': device.find('password').text}})
+            return out
         except Exception:
             pass

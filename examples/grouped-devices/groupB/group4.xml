@@ -5,4 +5,9 @@
         <user>foo</user>
         <password>bar</password>
     </device>
+    <device name="location-subgroup1-deviceID">
+        <address>127.0.0.1</address>
+        <user>foo1</user>
+        <password>bar1</password>
+    </device>
 </data>
