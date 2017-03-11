@@ -69,6 +69,18 @@ class Structure(object):
 class Parser(object):
 
     @staticmethod
+    def read_json(cfile: str) -> list:
+        """
+        Opens JSON conf file and returns its contents.
+        """
+        import json
+        try:
+            with open(cfile, 'r') as json_file:
+                return json.load(json_file)
+        except Exception:
+            pass
+
+    @staticmethod
     def read_yaml(cfile: str) -> list:
         """
         Opens YAML conf file and returns its contents.
