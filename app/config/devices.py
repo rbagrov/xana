@@ -11,7 +11,8 @@ __author__ = 'Rostislav Bagrov <bagrov.rostislav@gmail.com>'
 
 class Structure(object):
 
-    def get_directory_structure(self, confdir: str) -> dict:
+    @staticmethod
+    def get_directory_structure(confdir: str) -> dict:
         """
         Creates a nested dictionary representing folder structure of confdir
         """
@@ -26,7 +27,8 @@ class Structure(object):
             parent[folders[-1]] = subdir
         return out
 
-    def get_file_list(self, confdir: str) -> list:
+    @staticmethod
+    def get_file_list(confdir: str) -> list:
         """
         Creates list of all files in the given directory structure
         """
@@ -37,36 +39,56 @@ class Structure(object):
                 paths.append(filepath)
         return paths
 
-    def get_ini_files(self, confdir: str) -> list:
+    @staticmethod
+    def get_ini_files(confdir: str) -> list:
         """
         Creates list of all files with .ini extension in the given
         directory structure
         """
-        return [f for f in self.get_file_list(confdir) if f.endswith('.ini')]
+        return [f for f in Structure.get_file_list(confdir) if f.endswith('.ini')]
 
-    def get_xml_files(self, confdir: str) -> list:
+    @staticmethod
+    def get_xml_files(confdir: str) -> list:
         """
         Creates list of all files with .xml extension in the given
         directory structure
         """
-        return [f for f in self.get_file_list(confdir) if f.endswith('.xml')]
+        return [f for f in Structure.get_file_list(confdir) if f.endswith('.xml')]
 
-    def get_yaml_files(self, confdir: str) -> list:
+    @staticmethod
+    def get_yaml_files(confdir: str) -> list:
         """
         Creates list of all files with .yaml extension in the given
         directory structure
         """
-        return [f for f in self.get_file_list(confdir) if f.endswith('.yaml')]
+        return [f for f in Structure.get_file_list(confdir) if f.endswith('.yaml')]
 
-    def get_json_files(self, confdir: str) -> list:
+    @staticmethod
+    def get_json_files(confdir: str) -> list:
         """
         Creates list of all files with .yml extension in the given
         directory structure
         """
-        return [f for f in self.get_file_list(confdir) if f.endswith('.json')]
+        return [f for f in Structure.get_file_list(confdir) if f.endswith('.json')]
 
 
 class Parser(object):
+
+    @staticmethod
+    def get_all_config(confdir: str) -> list:
+        """
+        Walks over confdir and returns parsed configs
+        """
+        out = []
+        for each in Structure.get_json_files(confdir):
+            out.append(Parser.read_json(each))
+        for each in Structure.get_ini_files(confdir):
+            out.append(Parser.read_ini(each))
+        for each in Structure.get_yaml_files(confdir):
+            out.append(Parser.read_yaml(each))
+        for each in Structure.get_xml_files(confdir):
+            out.append(Parser.read_xml(each))
+        return out
 
     @staticmethod
     def read_json(cfile: str) -> list:
