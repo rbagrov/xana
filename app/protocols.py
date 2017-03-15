@@ -2,13 +2,6 @@
 # -*- coding: utf8 -*-
 
 import telnetlib
+from collections import namedtuple
 
-
-class telnet(object):
-
-    def __init__(self, host: str, port: int, login: str, password: str):
-        self.host = host
-        self.port = port
-        self.login = login
-        self.password = password
-        self.t = telnetlib.Telnet(host, port)
+telnet_parameters = namedtuple('telnet_parameters', 'host port login password')
