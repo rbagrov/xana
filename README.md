@@ -1,5 +1,4 @@
 XANA - Configuration versioning tool for various devices
-
 ========
 
 [![Build Status](https://travis-ci.org/rbagrov/xana.svg?branch=master)](https://travis-ci.org/rbagrov/xana)
