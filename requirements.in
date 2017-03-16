@@ -2,4 +2,4 @@ alembic
 SQLAlchemy
 configparser
 PyYAML
-
+mypy
