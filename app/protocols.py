@@ -47,7 +47,7 @@ class ssh(object):
         """
         self._connect()
         try:
-            stdin,stdout,stderr = self.ssh.exec_command(command)
+            stdin, stdout, stderr = self.ssh.exec_command(command)
             return stdout.read()
         except Exception as pokemon:
             pass
