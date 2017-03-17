@@ -3,3 +3,4 @@ SQLAlchemy
 configparser
 PyYAML
 mypy
+paramiko
