@@ -1,6 +1,26 @@
 #!/usr/bin/env python
 # -*- coding: utf8 -*-
 
+from app import data_type_validator
+
+
+class ssh(object):
+
+    def __init__(self, host, port, username, password):
+        """
+        Basic ssh object constructor
+        """
+        import paramiko
+        ssh_params = ssh._add_ssh_parameters(host, port, username, password)
+        self.host = ssh_params[0]
+        self.port = ssh_params[1]
+        self.username = ssh_params[2]
+        self.password = ssh_params[3]
+
+    @data_type_validator
+    def _add_ssh_parameters(host: str, port: int, username: str, password: str):
+        return (host, port, username, password)
+
 
 class telnet(object):
 
@@ -10,14 +30,19 @@ class telnet(object):
         """
         from telnetlib import Telnet
         code_table = 'ascii'
-        self.host = host
-        self.port = port
-        self.login_string = login_string.encode(code_table)
-        self.password_string = password_string.encode(code_table)
-        self.prompt = prompt.encode(code_table)
-        self.username = username.encode(code_table)
-        self.password = password.encode(code_table)
+        telnet_params = telnet._add_telnet_parameters(host, port, login_string, password_string, prompt, username, password)
+        self.host = telnet_params[0]
+        self.port = telnet_params[1]
+        self.login_string = telnet_params[2].encode(code_table)
+        self.password_string = telnet_params[3].encode(code_table)
+        self.prompt = telnet_params[4].encode(code_table)
+        self.username = telnet_params[5].encode(code_table)
+        self.password = telnet_params[6].encode(code_table)
         self.telnet_obj = Telnet()
+
+    @data_type_validator
+    def _add_telnet_parameters(host: str, port: int, login_string: str, password_string: str, prompt: str, username: str, password: str):
+        return (host, port, login_string, password_string, prompt, username, password)
 
     def _do_login(self):
         """
