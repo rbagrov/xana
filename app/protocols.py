@@ -6,22 +6,51 @@ from app import data_type_validator
 
 class ssh(object):
 
-    def __init__(self, host, port, username, password):
+    def __init__(self, hostname, port, username, password):
         """
         Basic ssh object constructor
         """
         import paramiko
-        ssh_params = ssh._add_ssh_parameters(host, port, username, password)
-        self.host = ssh_params[0]
+        ssh_params = ssh._add_ssh_parameters(hostname, port, username, password)
+        self.hostname = ssh_params[0]
         self.port = ssh_params[1]
         self.username = ssh_params[2]
         self.password = ssh_params[3]
-        ssh = paramiko.SSHClient()
-        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        self.ssh = paramiko.SSHClient()
+        self.ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
     @data_type_validator
-    def _add_ssh_parameters(host: str, port: int, username: str, password: str):
-        return (host, port, username, password)
+    def _add_ssh_parameters(hostname: str, port: int, username: str, password: str):
+        return (hostname, port, username, password)
+
+    def _connect(self):
+        """
+        Establishes ssh connection with given session parameters
+        """
+        try:
+            self.ssh.connect(hostname=self.hostname, port=self.port, username=self.username, password=self.password, allow_agent=False, look_for_keys=False)
+        except Exception as pokemon:
+            pass
+
+    def _disconnect(self):
+        """
+        Closes session
+        """
+        try:
+            self.ssh.close()
+        except Exception as pokemon:
+            pass
+
+    def instruct(self, command: str):
+        """
+        Sends instruction to a device
+        """
+        self._connect()
+        try:
+            stdin,stdout,stderr = self.ssh.exec_command(command)
+            return stdout.read()
+        except Exception as pokemon:
+            pass
 
 
 class telnet(object):
