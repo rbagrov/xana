@@ -16,6 +16,8 @@ class ssh(object):
         self.port = ssh_params[1]
         self.username = ssh_params[2]
         self.password = ssh_params[3]
+        ssh = paramiko.SSHClient()
+        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
     @data_type_validator
     def _add_ssh_parameters(host: str, port: int, username: str, password: str):
