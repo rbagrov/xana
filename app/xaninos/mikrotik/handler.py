@@ -46,8 +46,8 @@ def set_config(hostname, port, username, password, localpath, remotepath):
     """
     Uploads config to RouterOS
     """
-    ssh = protocols.ssh(hostname, port, username, password)
-    sftp = ssh.sftp()
+    session = ssh(hostname, port, username, password)
+    sftp = session.sftp()
     sftp.put(localpath, remotepath, callback=_check_transfer)
 
 
