@@ -48,9 +48,18 @@ class ssh(object):
         self._connect()
         try:
             stdin, stdout, stderr = self.ssh.exec_command(command)
-            return stdout.read()
+            out = stdout.read()
+            self._disconnect()
+            return out
         except Exception as pokemon:
             pass
+
+    def sftp(self):
+        """
+        Opens sftp client connection
+        """
+        self._connect()
+        return self.ssh.open_sftp()
 
 
 class telnet(object):
