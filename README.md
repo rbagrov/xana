@@ -1,7 +1,7 @@
 XANA - Configuration versioning tool for various devices
 ========
 
-This software is beta version and hasn't reached its first stable release. Many components are non functional.
+This software is beta version and hasn't reached its first stable release. Many components are still non fully functional.
 
 [![Build Status](https://travis-ci.org/rbagrov/xana.svg?branch=master)](https://travis-ci.org/rbagrov/xana)
 [![codecov](https://codecov.io/gh/rbagrov/xana/branch/master/graph/badge.svg)](https://codecov.io/gh/rbagrov/xana)
