@@ -3,6 +3,7 @@
 
 import os
 from functools import reduce
+from Log import log
 
 __title__ = 'Structure runner'
 __all__ = ['Structure']
@@ -99,8 +100,8 @@ class Parser(object):
         try:
             with open(cfile, 'r') as json_file:
                 return json.load(json_file)
-        except Exception:
-            pass
+        except Exception as e:
+            log.error(e)
 
     @staticmethod
     def read_yaml(cfile: str) -> list:
@@ -112,8 +113,8 @@ class Parser(object):
             with open(cfile, 'r') as yaml_file:
                 conf = yaml.load(yaml_file)
                 return [each for each in conf.items()]
-        except Exception:
-            pass
+        except Exception as e:
+            log.error(e)
 
     @staticmethod
     def read_ini(cfile: str) -> list:
@@ -130,8 +131,8 @@ class Parser(object):
                 items = config.items(section)
                 out.append({section: {item[0]: item[1] for item in items}})
             return out
-        except Exception:
-            pass
+        except Exception as e:
+            log.error(e)
 
     @staticmethod
     def read_xml(cfile: str) -> list:
@@ -150,5 +151,5 @@ class Parser(object):
                          'user': device.find('user').text,
                          'password': device.find('password').text}})
             return out
-        except Exception:
-            pass
+        except Exception as e:
+            log.error(e)

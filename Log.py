@@ -6,7 +6,7 @@ import logging.handlers
 
 
 class Debug:
-    enabled: False
+    enabled= False
 
 if Debug.enabled:
     log = logging.getLogger(__name__)

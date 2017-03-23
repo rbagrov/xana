@@ -3,6 +3,7 @@
 
 from app.protocols import ssh
 from app.protocols import telnet
+from Log import log
 
 
 def get_config(hostname, port, username, password, localpath):
@@ -16,8 +17,8 @@ def get_config(hostname, port, username, password, localpath):
     localpath = '{}{}'.format(localpath, rscfile)
     try:
         sftp.get(rscfile, localpath, callback=_check_transfer)
-    except (PermissionError,):
-        pass
+    except (PermissionError,) as e:
+        log.error(e)
     session.instruct('/file remove {}'.format(rscfile))
 
 
@@ -26,9 +27,9 @@ def _check_transfer(got, should):
     Callback for sftp put/get function.
     """
     if got == should:
-        pass
+        log.info('Good transfer')
     else:
-        pass
+        log.info('Broken transfer: {} bytes of {} bytes'.format(got, should))
 
 
 def _tag():

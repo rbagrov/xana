@@ -2,7 +2,7 @@
 # -*- coding: utf8 -*-
 
 from app import data_type_validator
-
+from Log import log
 
 class ssh(object):
 
@@ -29,8 +29,8 @@ class ssh(object):
         """
         try:
             self.ssh.connect(hostname=self.hostname, port=self.port, username=self.username, password=self.password, allow_agent=False, look_for_keys=False)
-        except Exception as pokemon:
-            pass
+        except Exception as e:
+            log.error(e)
 
     def _disconnect(self):
         """
@@ -38,8 +38,8 @@ class ssh(object):
         """
         try:
             self.ssh.close()
-        except Exception as pokemon:
-            pass
+        except Exception as e:
+            log.error(e)
 
     def instruct(self, command: str):
         """
@@ -51,8 +51,8 @@ class ssh(object):
             out = stdout.read()
             self._disconnect()
             return out
-        except Exception as pokemon:
-            pass
+        except Exception as e:
+            log.error(e)
 
     def sftp(self):
         """
