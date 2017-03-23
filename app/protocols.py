@@ -4,6 +4,7 @@
 from app import data_type_validator
 from Log import log
 
+
 class ssh(object):
 
     def __init__(self, hostname, port, username, password):
