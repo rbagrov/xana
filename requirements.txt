@@ -11,18 +11,19 @@ cffi==1.10.0              # via cryptography
 configparser==3.5.0
 cryptography==1.8.1       # via paramiko
 idna==2.5                 # via cryptography
-Mako==1.0.6               # via alembic
-MarkupSafe==1.0           # via mako
+mako==1.0.6               # via alembic
+markupsafe==1.0           # via mako
 mypy==0.501
 packaging==16.8           # via cryptography, setuptools
 paramiko==2.1.2
 pyasn1==0.2.3             # via paramiko
 pycparser==2.17           # via cffi
+pymongo==3.4.0
 pyparsing==2.2.0          # via packaging
 python-editor==1.0.3      # via alembic
-PyYAML==3.12
+pyyaml==3.12
 six==1.10.0               # via cryptography, packaging, setuptools
-SQLAlchemy==1.1.6         # via alembic
+sqlalchemy==1.1.6         # via alembic
 typed-ast==1.0.2          # via mypy
 
 # The following packages are considered to be unsafe in a requirements file:

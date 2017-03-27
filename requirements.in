@@ -1,6 +1,6 @@
 alembic
-SQLAlchemy
 configparser
 PyYAML
 mypy
 paramiko
+pymongo
