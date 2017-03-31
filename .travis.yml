@@ -15,17 +15,7 @@ before_install:
     - travis_retry pip install --use-wheel pip-tools==1.8.0
 
 install:
-    - |
-        if [ $TRAVIS_TAG ]; then
-            pip install --use-wheel Cython==0.25.2
-            mkdir wheelhouse
-            pip wheel --no-binary :all: -r requirements.txt --wheel-dir=wheelhouse
-            pip wheel -r requirements-dev.txt --wheel-dir=wheelhouse
-            pip-sync --no-index --find-links wheelhouse/ requirements-dev.txt requirements.txt
-        else
-            pip-sync requirements-dev.txt requirements.txt
-        fi
-
+    - pip-sync requirements-dev.txt requirements.txt
 script:
     - pycodestyle --ignore=E501 --show-source xana.py
     - pycodestyle --ignore=E501 --show-source app
