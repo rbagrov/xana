@@ -1,2 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf8 -*-
+
+from os import listdir, path
+
+xaninos_path = 'app/xaninos'
+xanin_set = [i for i in listdir(xaninos_path) if path.isdir(path.join(xaninos_path, i))]
