@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <data>
     <device name="location-subgroup-deviceID">
-        <address>127.0.0.1</address>
+        <ip>127.0.0.1</ip>
         <user>foo</user>
         <password>bar</password>
     </device>
     <device name="location-subgroup1-deviceID">
-        <address>127.0.0.1</address>
+        <ip>127.0.0.1</ip>
         <user>foo1</user>
         <password>bar1</password>
     </device>
