@@ -147,7 +147,7 @@ class Parser(object):
             for device in root.findall('device'):
                 out.append(
                     {device.attrib['name']:
-                        {'address': device.find('address').text,
+                        {'ip': device.find('ip').text,
                          'user': device.find('user').text,
                          'password': device.find('password').text}})
             return out
