@@ -4,6 +4,7 @@
 
 def data_type_validator(func):
     ano = func.__annotations__
+
     def wrapper(*args):
         import inspect
         func_sig = inspect.signature(func)
