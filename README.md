@@ -7,7 +7,7 @@ This software is Alpha version and hasn't reached its first beta release. Many c
 [![codecov](https://codecov.io/gh/rbagrov/xana/branch/master/graph/badge.svg)](https://codecov.io/gh/rbagrov/xana)
 [![Dependency Status](https://gemnasium.com/badges/github.com/rbagrov/xana.svg)](https://gemnasium.com/github.com/rbagrov/xana)
 [![Github Issues](http://githubbadges.herokuapp.com/rbagrov/xana/issues.svg?style=flat-square)](https://github.com/rbagrov/xana/issues)
-[![Code Health](https://landscape.io/github/rbagrov/xana/master/landscape.svg?style=flat)](https://landscape.io/github/rbagrov/xana/master
+[![Code Health](https://landscape.io/github/rbagrov/xana/master/landscape.svg?style=flat)](https://landscape.io/github/rbagrov/xana/master)
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://xana.mit-license.org)
 
 
