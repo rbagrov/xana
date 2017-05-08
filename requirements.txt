@@ -10,7 +10,7 @@ cffi==1.10.0              # via cryptography
 configparser==3.5.0
 cryptography==1.8.1       # via paramiko
 idna==2.5                 # via cryptography
-mypy==0.501
+mypy==0.510
 packaging==16.8           # via cryptography, setuptools
 paramiko==2.1.2
 pyasn1==0.2.3             # via paramiko
