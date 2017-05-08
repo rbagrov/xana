@@ -22,6 +22,9 @@ class ssh(object):
 
     @data_type_validator
     def _add_ssh_parameters(hostname: str, port: int, username: str, password: str):
+        """
+        Instance data type loop
+        """
         return (hostname, port, username, password)
 
     def _connect(self):

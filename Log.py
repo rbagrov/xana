@@ -5,7 +5,7 @@ import logging
 import logging.handlers
 
 
-class Debug:
+class Debug(object):
     enabled= False
 
 if Debug.enabled:

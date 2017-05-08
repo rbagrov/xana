@@ -2,7 +2,6 @@
 # -*- coding: utf8 -*-
 
 from app.protocols import ssh
-from app.protocols import telnet
 from Log import log
 
 
@@ -17,7 +16,7 @@ def get_config(hostname, port, username, password, localpath):
     localpath = '{}{}'.format(localpath, rscfile)
     try:
         sftp.get(rscfile, localpath, callback=_check_transfer)
-    except (PermissionError,) as e:
+    except PermissionError as e:
         log.error(e)
     session.instruct('/file remove {}'.format(rscfile))
 
@@ -38,7 +37,6 @@ def _tag():
     """
     import string
     import random
-    count = 0
     charset = string.ascii_uppercase + string.ascii_lowercase + string.digits
     return ''.join(random.choice(charset) for each in range(8))
 
