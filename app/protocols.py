@@ -32,7 +32,12 @@ class ssh(object):
         Establishes ssh connection with given session parameters
         """
         try:
-            self.ssh.connect(hostname=self.hostname, port=self.port, username=self.username, password=self.password, allow_agent=False, look_for_keys=False)
+            self.ssh.connect(hostname=self.hostname,
+                             port=self.port,
+                             username=self.username,
+                             password=self.password,
+                             allow_agent=False,
+                             look_for_keys=False)
         except Exception as e:
             log.error(e)
 
