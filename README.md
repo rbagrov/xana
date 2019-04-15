@@ -1,4 +1,4 @@
-XANA - Configuration versioning tool for various devices
+XANA - Configuration versioning tool for various devices (not under active development)
 ========
 
 This software is Alpha version and hasn't reached its first beta release. Many components are still non fully functional.
